@@ -1,0 +1,68 @@
+<!-- Create a webpage with an HTML form that takes two numbers and an operator (+, –, ×, ÷). 
+When the user submits the form, JavaScript should read the inputs, perform the calculation, and 
+display the result in a popup alert. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="submit" id="form">
+        <label>Enter first number</label>
+        <input type="number" placeholder="Enter number 1" id="num1"><br><br>
+
+        <label>Enter second number</label>
+        <input type="number" placeholder="Enter number 2" id="num2"><br><br>
+
+        <label >Select operation to perform</label>
+
+        <select id="op">
+            <option id="add">+</option>
+            <option id="subtract">-</option>
+            <option id="product">X</option>
+            <option id="divide">/</option>
+        </select>
+
+        <button id="btn">calculate</button>
+    </form>
+
+    <script>
+        const form= document.getElementById('form');
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const num1 = parseFloat(document.getElementById('num1').value);
+            const num2 = parseFloat(document.getElementById('num2').value);
+
+            const operation = document.getElementById('op').value;
+            let result;
+            switch (operation) {
+                case '+':{
+                    result = num1 + num2;
+                    alert(`The sum of ${num1} and ${num2} is ${result}`);
+                    break;
+                }
+                case '-': {
+                    result = num1 - num2;
+                    alert(`The difference of ${num1} and ${num2} is ${result}`);
+                    break; 
+                }
+                case 'X': {
+                    result = num1 * num2;
+                    alert(`The product of ${num1} and ${num2} is ${result}`);
+                    break; 
+                }
+                case '/': {
+                    result = num1 / num2;
+                    alert(`The division of  ${num1} and ${num2} is ${result.toFixed(2)}`);
+                    break; 
+                }
+            }
+
+        })
+    </script>
+</body>
+</html>
